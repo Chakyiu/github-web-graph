@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>github-web-graph options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>github-web-graph</h1>
+    <p>Public repositories load with no token. A token is sent only to <code>api.github.com</code>. Fine-grained tokens need Contents: Read. Classic tokens need <code>public_repo</code> for public repositories, or <code>repo</code> to read private ones. Paste the token itself, not a “Bearer” prefix.</p>
+    <form id="form">
+      <label for="token">GitHub personal access token</label>
+      <input id="token" type="password" autocomplete="off" spellcheck="false">
+      <div class="row">
+        <button type="submit">Save</button>
+        <button type="button" id="clear">Remove token</button>
+      </div>
+      <p id="status" role="status"></p>
+    </form>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

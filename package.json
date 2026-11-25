@@ -1,0 +1,7 @@
+{
+  "name": "github-web-graph",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
