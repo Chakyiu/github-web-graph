@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "github-web-graph",
+  "version": "0.1.0",
+  "description": "Commit and branch graph on GitHub repository pages.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.github.com/*"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "github-web-graph"
+  },
+  "options_ui": {
+    "page": "src/options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": [
+        "src/layout.js",
+        "src/model.js",
+        "src/glyph.js",
+        "src/github.js",
+        "src/content.js"
+      ],
+      "css": ["src/host.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/graph.css"],
+      "matches": ["https://github.com/*"]
+    }
+  ]
+}
