@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "github-web-graph",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Commit and branch graph on GitHub repository pages.",
   "permissions": ["storage"],
   "host_permissions": ["https://api.github.com/*"],
