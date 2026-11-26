@@ -127,7 +127,9 @@
     var nodes = [];
     var seen = new Set();
     document.querySelectorAll("#readme, [data-testid='readme'], [id^='readme'], article.markdown-body").forEach(function (node) {
-      var box = node.closest("article, .Box, [data-testid='readme']") || node;
+      var box = node.closest("[data-testid='readme'], #readme")
+        || node.closest("article, .Box, [data-testid='readme']")
+        || node;
       if (seen.has(box)) return;
       if (listing && (box === listing || box.contains(listing))) return;
       if (box.querySelector && box.querySelector(".gwg-toggle, #gwg-graph")) return;
@@ -574,7 +576,7 @@
     ui.filesBtn.setAttribute("aria-pressed", graphOn ? "false" : "true");
     ui.graphBtn.setAttribute("aria-pressed", graphOn ? "true" : "false");
     setPanelHidden(state.listing, graphOn, immediate);
-    state.readmes.forEach(function (node) { setPanelHidden(node, graphOn, immediate); });
+    state.readmes.forEach(function (node) { setPanelHidden(node, false, immediate); });
     setPanelHidden(ui.host, !graphOn, immediate);
     persistView();
     if (graphOn && state.loadedRef !== state.ref) load("replace");
@@ -928,9 +930,7 @@
     var readmes = findReadmes(state.listing);
     state.readmes = readmes;
     if (state.view !== "graph") return;
-    readmes.forEach(function (node) {
-      if (!node.classList.contains("gwg-host-hidden")) setPanelHidden(node, true, true);
-    });
+    readmes.forEach(function (node) { setPanelHidden(node, false, true); });
   }
 
   function ensure() {
