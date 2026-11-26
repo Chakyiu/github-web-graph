@@ -30,6 +30,9 @@
 :host *::before,
 :host *::after { box-sizing: border-box; }
 
+/* Author display rules beat the hidden attribute. */
+[hidden] { display: none !important; }
+
 :host :focus { outline: none; }
 :host :focus-visible {
   outline: 2px solid var(--focus-outlineColor);

@@ -4,6 +4,22 @@ Chromium extension that adds a **Files | Graph** control to a GitHub repository 
 
 The interaction follows the GALA-155 handoff: the control sits after the branch selector on the repository root and on `/tree/` pages. Tags are not shown.
 
+## Screenshots
+
+Unpacked extension on [vitejs/vite](https://github.com/vitejs/vite).
+
+![Graph on the vite Code tab](docs/screenshots/graph-view.png)
+
+*Graph on the Code tab. The current branch is a pill, and the About sidebar stays visible.*
+
+![Commit detail open beside the graph](docs/screenshots/commit-detail.png)
+
+*Selecting a row opens the subject, parents, and full SHA.*
+
+![All branches, with a second lane and branch pill](docs/screenshots/all-branches.png)
+
+*All branches keeps sampled tips from other branches, on their own lanes.*
+
 ## Load unpacked
 
 1. Clone this repository.
